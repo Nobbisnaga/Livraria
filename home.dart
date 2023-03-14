@@ -11,16 +11,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 List<Map<String, dynamic>> _allUsers = [
-{"id":1,"name":"Rashoumon","Lançado em":1950},
-{"id":2,"name":"Conde de Monte Cristo","Lançado em":2002},
-{"id":3,"name":"bob","Lançado em":5},
-{"id":4,"name":"barbara","Lançado em":35},
-{"id":5,"name":"venti","Lançado em":1000},
-{"id":6,"name":"raiden","Lançado em":1500},
-{"id":7,"name":"nahida","Lançado em":500},
-{"id":8,"name":"mei","Lançado em":25},
-{"id":9,"name":"kiana","Lançado em":24},
-{"id":10,"name":"bronya","Lançado em":23}
+    {"id":1,"name":"Rashoumon","lancamento":1950},
+    {"id":2,"name":"Conde de Monte Cristo","lancamento":2002},
+    {"id":3,"name":"bob","lancamento":5},
+    {"id":4,"name":"barbara","lancamento":35},
+    {"id":5,"name":"venti","lancamento":1000},
+    {"id":6,"name":"raiden","lancamento":1500},
+    {"id":7,"name":"nahida","lancamento":500},
+    {"id":8,"name":"mei","lancamento":25},
+    {"id":9,"name":"kiana","lancamento":24},
+    {"id":10,"name":"bronya","lancamento":23}
 ];
 
 List<Map<String, dynamic>> _foundUsers = [];
@@ -44,8 +44,6 @@ void _runFilter(String enteredKeyword) {
     _foundUsers = results;
   });
 }
-
-
 
 
   @override
@@ -88,7 +86,7 @@ void _runFilter(String enteredKeyword) {
       appBar: AppBar(
         title: Text('Sea Atlantis'),
       ),
-      body:Padding(
+      body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
           children: [
@@ -108,21 +106,26 @@ void _runFilter(String enteredKeyword) {
               flex: 2,
               child: ListView.builder(
                 itemCount:_foundUsers.length,
-                itemBuilder: (context, index)=>Card(
+                itemBuilder: (context, index) =>
+                
+                Card(
                   key: ValueKey(_foundUsers[index]["id"]),
                   color: Colors.blue,elevation: 4,
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: ListTile(
-                    onTap:(){},
-                leading: Text(
-                  _foundUsers[index]["id"].toString(),
-                      style: const TextStyle(fontSize: 24, color: Colors.white),
+                    onTap: (){
+                      //Click nos itens da lista
+                      print(_foundUsers[index]["name"].toString());
+                    },
+                  leading: Text(
+                    _foundUsers[index]["id"].toString(),
+                    style: const TextStyle(fontSize: 24, color: Colors.white),
                  ),
                  title: Text(_foundUsers[index]['name'],
-                        style: TextStyle(fontSize: 24, color: Colors.white),
+                          style: TextStyle(fontSize: 24, color: Colors.white),
                         ),
-                    subtitle: Text('Lançado em:${_foundUsers[index]["Lançado em"].toString()}',
-                        style: TextStyle(color: Colors.white)),
+                 subtitle: Text('Lançamento:${_foundUsers[index]["lancamento"].toString()}',
+                         style: TextStyle(color: Colors.white)),
                         ),
                 ),
               ),
