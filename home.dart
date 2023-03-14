@@ -1,37 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_application_3/receive.dart';
-import 'model/model.dart';
+import 'package:sea_atlantis/main.dart';
 
-
-class MyHome extends StatefulWidget {
-  const MyHome({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
   @override
-  State<MyHome> createState() => _MyHomeState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-
-class _MyHomeState extends State<MyHome> {
- 
-  /*late String _nomeLivro;
-  late String _capa;
-  late int _sinopse;
-  late String _nomeAutor;
-  late String _bibliografia;
-
-  void _getFields(){
-    Livro livro = Livro(
-
-    _nomeLivro,
-    _capa,
-    _sinopse,
-    _nomeAutor,
-    _bibliografia,
-    );
-    
-  }*/
+class _MyHomePageState extends State<MyHomePage> {
 
 List<Map<String, dynamic>> _allUsers = [
 {"id":1,"name":"Rashoumon","Lançado em":1950},
@@ -53,7 +30,6 @@ initState() {
   super.initState();
 }
 
-
 void _runFilter(String enteredKeyword) {
   List<Map<String, dynamic>> results = [];
   if(enteredKeyword.isEmpty){
@@ -69,6 +45,9 @@ void _runFilter(String enteredKeyword) {
   });
 }
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,8 +55,9 @@ void _runFilter(String enteredKeyword) {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-              currentAccountPicture: Image.asset(
-                '../assets/images/bronya.png'
+              currentAccountPicture: 
+              Image.asset(
+                '../assets/images/bronya.jpg'
                 ),
               accountName: Text('Arconte Bronya'),
               accountEmail: Text('Bronya@gmail.com'),
@@ -104,13 +84,12 @@ void _runFilter(String enteredKeyword) {
 
 
 
-
-
+      
       appBar: AppBar(
-        title: Text("Sea Atlantis"),
+        title: Text('Sea Atlantis'),
       ),
       body:Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(14.0),
         child: Column(
           children: [
             const SizedBox(
@@ -119,46 +98,38 @@ void _runFilter(String enteredKeyword) {
             TextField(
               onChanged: (value) => _runFilter(value),
               decoration: InputDecoration(
-                labelText: 'Search', suffixIcon: Icon(Icons.search),
+                labelText: 'search', suffixIcon: Icon(Icons.search),
               ),
             ),
             const SizedBox(
               height: 20,
-              ),
+            ),
             Expanded(
+              flex: 2,
               child: ListView.builder(
-                itemCount: _foundUsers.length,
+                itemCount:_foundUsers.length,
                 itemBuilder: (context, index)=>Card(
                   key: ValueKey(_foundUsers[index]["id"]),
                   color: Colors.blue,elevation: 4,
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: ListTile(
-                    onTap:(){
-                    },
-                    leading: Text(
-                      _foundUsers[index]["id"].toString(),
+                    onTap:(){},
+                leading: Text(
+                  _foundUsers[index]["id"].toString(),
                       style: const TextStyle(fontSize: 24, color: Colors.white),
-                    ),
-                    title: Text(_foundUsers[index]['name'],
+                 ),
+                 title: Text(_foundUsers[index]['name'],
                         style: TextStyle(fontSize: 24, color: Colors.white),
                         ),
                     subtitle: Text('Lançado em:${_foundUsers[index]["Lançado em"].toString()}',
                         style: TextStyle(color: Colors.white)),
                         ),
                 ),
-                ),
+              ),
             ),
-
-            
-
-
-          
           ],
         ),
-      )
+        ),
     );
-   }
   }
-  
-
-  
+}
