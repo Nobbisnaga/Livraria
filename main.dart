@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/home.dart';
+import 'package:sea_atlantis/inicio.dart';
 
-void main() => runApp(const MyForms());
+void main() {
+  runApp(const MyApp());
+}
 
-class MyForms extends StatelessWidget {
-  const MyForms({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +14,11 @@ class MyForms extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Sea Atlantis',
       theme: ThemeData(
-        
+
         primarySwatch: Colors.blue,
       ),
-      home: const MyHome(),
+      home: const MyHomePage(),
     );
   }
 }
+
