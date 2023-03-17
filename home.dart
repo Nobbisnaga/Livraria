@@ -11,16 +11,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 List<Map<String, dynamic>> _allUsers = [
-    {"id":1,"name":"Rashoumon","lancamento":1950},
-    {"id":2,"name":"Conde de Monte Cristo","lancamento":2002},
-    {"id":3,"name":"bob","lancamento":5},
-    {"id":4,"name":"barbara","lancamento":35},
-    {"id":5,"name":"venti","lancamento":1000},
-    {"id":6,"name":"raiden","lancamento":1500},
-    {"id":7,"name":"nahida","lancamento":500},
-    {"id":8,"name":"mei","lancamento":25},
-    {"id":9,"name":"kiana","lancamento":24},
-    {"id":10,"name":"bronya","lancamento":23}
+{"id":1,"name":"Rashoumon","Lançado em":1950},
+{"id":2,"name":"Conde de Monte Cristo","Lançado em":2002},
+{"id":3,"name":"O Jardim das Borboletas","Lançado em":2016},
+{"id":4,"name":"O Paciente","Lançado em":2021},
+{"id":5,"name":"A Divina Comédia","Lançado em":1304},
+{"id":6,"name":"O Medo a Espreita","Lançado em":1215},
 ];
 
 List<Map<String, dynamic>> _foundUsers = [];
